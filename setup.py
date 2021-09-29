@@ -2,19 +2,20 @@ from setuptools import setup
 
 setup(
     # Needed to silence warnings (and to be a worthwhile package)
-    name='Nectarifere',
-    url='https://github.com/jladan/package_demo',
-    author='John Ladan',
-    author_email='jladan@uwaterloo.ca',
+    name='nectarifere',
+    url='https://github.com/XanAstia/Nectarifere.git',
+    author='Xan Astia',
+    author_email='xan.astia@live.fr',
     # Needed to actually package something
-    packages=['measure'],
+    packages=['nectarifere', 'tests'],
     # Needed for dependencies
-    install_requires=['numpy'],
+    install_requires=[],
     # *strongly* suggested for sharing
-    version='0.1',
+    version='1.0',
     # The license can be anything you like
     license='MIT',
-    description='An example of a python package from pre-existing code',
-    # We will also need a readme eventually (there will be a warning)
-    # long_description=open('README.txt').read(),
+    description='Décorateur pour ambiancer vos codes.',
+    long_description=open('README.md').read(),
+#   include_package_data=True, #empeche package_data de fonctionner
+    package_data={'nectarifere': ['Sounds/Kaamelott/Echec/*.wav', 'Sounds/Kaamelott/Succes/*.wav']},
 )
