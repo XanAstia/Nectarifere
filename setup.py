@@ -1,5 +1,8 @@
 from setuptools import setup
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setup(
     # Needed to silence warnings (and to be a worthwhile package)
     name='nectarifere',
@@ -9,13 +12,14 @@ setup(
     # Needed to actually package something
     packages=['nectarifere', 'tests'],
     # Needed for dependencies
-    install_requires=[],
+    install_requires=['playsound'],
     # *strongly* suggested for sharing
-    version='1.0',
+    version='1.1',
     # The license can be anything you like
     license='MIT',
     description='Décorateur pour ambiancer vos codes.',
-    long_description=open('README.md').read(),
+    long_description=long_description,
+    long_description_content_type = 'text/markdown',
 #   include_package_data=True, #empeche package_data de fonctionner
     package_data={'nectarifere': ['Sounds/Kaamelott/Echec/*.wav', 'Sounds/Kaamelott/Succes/*.wav']},
 )
