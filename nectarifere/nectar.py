@@ -11,11 +11,11 @@ def Nectar(function):
     def new_function(*args, **kwargs):
         try:
             function(*args, **kwargs)
-            files = glob(os.path.join(directory, 'Sounds/Kaamelott/Succes/*.wav'))
+            files = glob(os.path.join(directory, 'Sounds', 'Kaamelott', 'Succes', '*.wav'))
             file = random.choice(files)
             playsound(file)
         except:
-            files = glob(os.path.join(directory ,'Sounds/Kaamelott/Echec/*.wav'))
+            files = glob(os.path.join(directory, 'Sounds', 'Kaamelott', 'Echec', '*.wav'))
             file = random.choice(files)
             playsound(file)
 

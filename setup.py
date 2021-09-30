@@ -14,7 +14,7 @@ setup(
     # Needed for dependencies
     install_requires=['playsound'],
     # *strongly* suggested for sharing
-    version='1.1',
+    version='1.1.1',
     # The license can be anything you like
     license='MIT',
     description='Décorateur pour ambiancer vos codes.',
