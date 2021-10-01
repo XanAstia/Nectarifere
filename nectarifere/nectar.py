@@ -3,7 +3,8 @@
 from glob import glob
 import os
 import random
-from playsound import playsound
+from play_sounds import play_file
+
 directory = os.path.dirname(os.path.abspath(__file__))
 
 def Nectar(function):
@@ -18,10 +19,9 @@ def Nectar(function):
             file = random.choice(success_files)
 
         except:
-
             file = random.choice(fail_files)
 
         finally:
-            playsound(file)
+            play_file(file)
 
     return new_function
