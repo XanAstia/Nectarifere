@@ -12,9 +12,9 @@ setup(
     # Needed to actually package something
     packages=['nectarifere', 'tests'],
     # Needed for dependencies
-    install_requires=['playsound'],
+    install_requires=['play-sounds'],
     # *strongly* suggested for sharing
-    version='1.1.1',
+    version='1.1.2',
     # The license can be anything you like
     license='MIT',
     description='Décorateur pour ambiancer vos codes.',
