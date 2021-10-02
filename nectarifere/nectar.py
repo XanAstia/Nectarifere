@@ -1,4 +1,6 @@
-#"With great power comes great responsibility." M.S.
+"""
+"With great power comes great responsibility." M.S.
+"""
 
 from glob import glob
 import os
@@ -7,12 +9,15 @@ from play_sounds import play_file
 
 directory = os.path.dirname(os.path.abspath(__file__))
 
-def Nectar(function):
+
+def nectar(function):
 
     success_files = glob(os.path.join(directory, 'Sounds/Kaamelott/Succes/*.wav'))
     fail_files = glob(os.path.join(directory, 'Sounds/Kaamelott/Echec/*.wav'))
 
     def new_function(*args, **kwargs):
+
+        file = None
 
         try:
             function(*args, **kwargs)
