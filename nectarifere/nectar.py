@@ -18,7 +18,8 @@ def Nectar(function):
             function(*args, **kwargs)
             file = random.choice(success_files)
 
-        except:
+        except Exception as e:
+            print(e)
             file = random.choice(fail_files)
 
         finally:
