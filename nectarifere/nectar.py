@@ -1,6 +1,4 @@
-"""
-"With great power comes great responsibility." M.S.
-"""
+#"With great power comes great responsibility." M.S.
 
 from glob import glob
 import os
