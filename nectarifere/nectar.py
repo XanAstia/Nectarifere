@@ -3,8 +3,9 @@
 from glob import glob
 import os
 import random
-from play_sounds import play_file
 
+from play_sounds import play_file
+from pathlib import Path
 directory = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -19,11 +20,11 @@ def nectar(function):
 
         try:
             function(*args, **kwargs)
-            file = random.choice(success_files)
+            file = Path(random.choice(success_files), encoding=None)
 
         except Exception as e:
             print(e)
-            file = random.choice(fail_files)
+            file = Path(random.choice(fail_files), encoding=None)
 
         finally:
             play_file(file)

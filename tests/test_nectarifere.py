@@ -1,6 +1,6 @@
-from nectarifere.nectar import Nectar
+from nectarifere.nectar import nectar
 
-@Nectar
+@nectar
 def do(a):
     if a != 5:
         raise ValueError
