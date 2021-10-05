@@ -17,16 +17,20 @@ def nectar(function):
     def new_function(*args, **kwargs):
 
         file = None
+        caught_exception = None
 
         try:
             function(*args, **kwargs)
             file = Path(random.choice(success_files), encoding=None)
 
         except Exception as e:
-            print(e)
+
+            caught_exception = e
             file = Path(random.choice(fail_files), encoding=None)
 
         finally:
             play_file(file)
+            if caught_exception is not None:
+                raise caught_exception
 
     return new_function
