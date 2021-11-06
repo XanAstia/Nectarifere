@@ -1,37 +1,27 @@
-#"With great power comes great responsibility." M.S.
+'''
+"With great power comes great responsibility." M.S.
+'''
 
-from glob import glob
 import os
 import random
-
+from glob import glob
+from .extracteur import ExtracteurDeJus
 from PIL import Image
 from pathlib import Path
 directory = os.path.dirname(os.path.abspath(__file__))
 
 
-def falzar(function):
+class falzar(ExtracteurDeJus):
 
-    success_files = glob(os.path.join(directory, 'Pictures', 'Succes', '*.jpg'))
-    fail_files = glob(os.path.join(directory, 'Pictures', 'Echec', '*.jpg'))
+    def __init__(self, function):
+        super().__init__(function)
+        self.success_files = glob(os.path.join(directory, 'Pictures', 'Succes', '*.jpg'))
+        self.failure_files = glob(os.path.join(directory, 'Pictures', 'Echec', '*.jpg'))
 
-    def new_function(*args, **kwargs):
+    def success(self):
+        with Image.open(Path(random.choice(self.success_files))) as img:
+            img.show()
 
-        file = None
-        caught_exception = None
-
-        try:
-            function(*args, **kwargs)
-            file = Path(random.choice(success_files), encoding=None)
-
-        except Exception as e:
-
-            caught_exception = e
-            file = Path(random.choice(fail_files), encoding=None)
-
-        finally:
-            with Image.open(file) as img:
-                img.show()
-            if caught_exception is not None:
-                raise caught_exception
-
-    return new_function
+    def failure(self):
+        with Image.open(Path(random.choice(self.failure_files))) as img:
+            img.show()
