@@ -1,36 +1,23 @@
 #"With great power comes great responsibility." M.S.
 
-from glob import glob
 import os
 import random
-
+from glob import glob
+from .extracteur import ExtracteurDeJus
 from play_sounds import play_file
 from pathlib import Path
 directory = os.path.dirname(os.path.abspath(__file__))
 
 
-def nectar(function):
+class nectar(ExtracteurDeJus):
 
-    success_files = glob(os.path.join(directory, 'Sounds', 'Kaamelott', 'Succes', '*.wav'))
-    fail_files = glob(os.path.join(directory, 'Sounds', 'Kaamelott', 'Echec', '*.wav'))
+    def __init__(self, function):
+        super().__init__(function)
+        self.success_files = glob(os.path.join(directory, 'Sounds', 'Kaamelott', 'Succes', '*.wav'))
+        self.failure_files = glob(os.path.join(directory, 'Sounds', 'Kaamelott', 'Echec', '*.wav'))
 
-    def new_function(*args, **kwargs):
+    def success(self):
+        play_file(Path(random.choice(self.success_files), encoding=None))
 
-        file = None
-        caught_exception = None
-
-        try:
-            function(*args, **kwargs)
-            file = Path(random.choice(success_files), encoding=None)
-
-        except Exception as e:
-
-            caught_exception = e
-            file = Path(random.choice(fail_files), encoding=None)
-
-        finally:
-            play_file(file)
-            if caught_exception is not None:
-                raise caught_exception
-
-    return new_function
+    def failure(self):
+        play_file(Path(random.choice(self.failure_files), encoding=None))
