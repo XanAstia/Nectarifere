@@ -1,4 +1,6 @@
-#"With great power comes great responsibility." M.S.
+'''
+"With great power comes great responsibility." M.S.
+'''
 
 import os
 import random
