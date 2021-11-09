@@ -1,4 +1,4 @@
-# Nectarifere
+# Nectarifere (latest available version: 2.0)
 
 To use this decorator:
 
