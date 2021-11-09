@@ -7,6 +7,14 @@ To use this decorator:
     @nectar
     def your_function(*args, **kwargs):
       blabla
+      
+Or:
+    
+    from nectarifere.falzar import falzar
+    
+    @falzar
+    def your_function(*args, **kwargs):
+      blabla
 
 To create your own decorator: 
 
