@@ -11,22 +11,22 @@ class ExtracteurDeJus(ABC):
 
     @abstractmethod
     def success(self):
-        '''
+        """
         Abstract method called when the decorated function succeeds
-        '''
+        """
         pass
 
     @abstractmethod
     def failure(self):
-        '''
+        """
         Abstract method called when the decorated function fails
-        '''
+        """
         pass
 
     def __call__(self, *args, **kwargs):
-        '''
+        """
         Decorating the function call
-        '''
+        """
         caught_exception = None
         res = None
 
