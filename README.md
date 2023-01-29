@@ -1,10 +1,18 @@
-# Nectarifere
+# Nectarifere (latest available version: 2.0)
 
 To use this decorator:
 
     from nectarifere.nectar import nectar
 
     @nectar
+    def your_function(*args, **kwargs):
+      blabla
+      
+Or:
+    
+    from nectarifere.falzar import falzar
+    
+    @falzar
     def your_function(*args, **kwargs):
       blabla
 
