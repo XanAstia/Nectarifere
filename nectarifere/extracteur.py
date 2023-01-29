@@ -14,7 +14,7 @@ class ExtracteurDeJus(ABC):
     def failure(self):
         pass
 
-    def __call__(self,*args, **kwargs):
+    def __call__(self, *args, **kwargs):
 
 
         caught_exception = None
