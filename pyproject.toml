@@ -1,0 +1,43 @@
+# Guide (user-friendly):
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+
+# Specification (technical, formal):
+# https://packaging.python.org/en/latest/specifications/pyproject-toml/
+
+
+# Choosing a build backend:
+# https://packaging.python.org/en/latest/tutorials/packaging-projects/#choosing-a-build-backend
+[build-system]
+# A list of packages that are needed to build your package:
+requires = ["setuptools"] # REQUIRED if [build-system] table is used
+# The name of the Python object that frontends will use to perform the build:
+build-backend = "setuptools.build_meta" # If not defined, then legacy behavior can happen.
+
+
+[project]
+name = "nectarifere"
+version = "03.00"
+description = "Décorateur pour ambiancer tes codes."
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["kaamelott"]
+authors = [
+    { name = "Xan Astiasarain", email = "xan.astia@live.fr"},
+    { name = "Simon Dupourque"},
+]
+maintainers = [
+    { name = "Xan Astiasarain"},
+]
+classifiers = ["Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python :: 3.14",
+]
+dependencies = [ "playsound3", "pillow"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+nectarifere = ['Sounds/Kaamelott/Echec/*.wav', 'Sounds/Kaamelott/Succes/*.wav', 'Pictures/Echec/*.jpg', 'Pictures/Succes/*.jpg']
